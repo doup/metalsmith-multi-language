@@ -107,6 +107,11 @@ describe('/lib/multilang.js', function () {
 
             expect(files['file_es.md']).to.have.property('lang');
             expect(files['file_en.md']).to.have.property('lang');
+
+            // Check references
+            expect(files['file_es.md'].lang('en')).to.equal(files['file_en.md']);
+            expect(files['file_en.md'].lang('es')).to.equal(files['file_es.md']);
+
             expect(files['file_es.md'].lang('en').title).to.equal('en');
             expect(files['file_es.md'].lang('es').title).to.equal('es');
             expect(files['file_en.md'].lang('es').title).to.equal('es');
