@@ -1,0 +1,34 @@
+{
+  "name": "metalsmith-multi-language",
+  "version": "0.1.0",
+  "description": "Create multi-language websites in Metalsmith",
+  "homepage": "https://github.com/doup/metalsmith-multi-language#readme",
+  "author": "doup <asier@illarra.com>",
+  "license": "MIT",
+  "keywords": [
+    "metalsmith",
+    "multi-language",
+    "i18n",
+    "translate",
+    "locale",
+    "localize",
+    "l10n"
+  ],
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/doup/metalsmith-multi-language.git"
+  },
+  "bugs": {
+    "url": "https://github.com/doup/metalsmith-multi-language/issues"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^3.0.0",
+    "metalsmith": "^1.7.0",
+    "mocha": "^2.2.5"
+  },
+  "scripts": {
+    "test": "mocha --ui bdd --reporter spec"
+  }
+}
