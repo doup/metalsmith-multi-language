@@ -1,11 +1,66 @@
 # metalsmith-multi-language
-Create multi-language websites in Metalsmith
 
 ## Instalation
 
+    $ npm install --save metalsmith-multi-language
+
 ## Usage
 
-## Options
+Add the plugin:
+
+```javascript
+var multiLanguage = require('metalsmith-multi-language');
+
+Metalsmith(__dirname)
+    .use(multiLanguage({ default: 'es', locales: ['en', 'es'] }))
+```
+
+The plugin needs both a `default` locale and the supported `locales` list. Note that `default` repeats in the `locales` array. `default` will act as the **main** locale while the others will be the **secondary** ones.
+
+Append the locale to your file names (`_{locale}` with the underscore), e.g.:
+
+```
+index_es.md
+index_en.md
+path/file_es.md
+path/file_en.md
+```
+
+### Property merging
+
+The plugin will merge properties from the **main** locale to the **secondary** ones. This is usefull if you want a property shared between all the locales (e.g.: `date`, `template`…).
+
+### `locale` property
+
+Each file will have a `locale` property with its locale, if the filename does not have the locale extension the **main** locale will be set, e.g.: `file_en.md` `locale` property would be `en`, while for `rand.md` will be `es`.
+
+### `lang()` method
+
+Each file will have a `lang()` method which is usefull to reference the translated files. So, if you're in the `index_es.md` file, and you want to get the english version just call `lang('en')`.
+
+If the locale is not found this will throw an expection.
+
+### `defaultLocale` & `locales`
+
+Both options will be added to Metalsmith metadata as: `defaultLocale` and `locales` so that you can use them in your templates.
+
+### Index handling
+
+The plugin will handle the index files gracefully, so that, if `es` is the **main** locale and `en` is the **secondary** one. This:
+
+```
+index_es.md
+index_en.md
+```
+
+Becomes:
+
+```
+index.md
+en/index.md
+```
+
+The plugin will also add a `path` property to each index file with the pretty path, e.g.: '' (empty string) for `index.md` and `en/` for `en/index.md`.
 
 ## Tests
 
