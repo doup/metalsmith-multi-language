@@ -26,6 +26,8 @@ path/file_es.md
 path/file_en.md
 ```
 
+Note that **this plugin does not handle URL generation**, if you need URLs in the `:locale/:slug` format or similar check [`metalsmith-permalinks`](https://github.com/segmentio/metalsmith-permalinks).
+
 ### Property merging
 
 The plugin will merge properties from the **main** locale to the **secondary** ones. This is usefull if you want a property shared between all the locales (e.g.: `date`, `template`…).
@@ -60,7 +62,7 @@ index.md
 en/index.md
 ```
 
-The plugin will also add a `path` property to each index file with the pretty path, e.g.: '' (empty string) for `index.md` and `en/` for `en/index.md`.
+The plugin will also add a `path` property to each index file with the pretty path, e.g.: `''` (empty string) for `index.md` and `en/` for `en/index.md`.
 
 ## Tests
 
