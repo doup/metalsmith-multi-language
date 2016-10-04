@@ -14,6 +14,8 @@ describe('/lib/multilang.js', function () {
             expect(multilang.getAltFilename('index_es.html', 'es', 'es')).to.equal('index_es.html');
             expect(multilang.getAltFilename('some/path/file_es.md', 'es', 'ca')).to.equal('some/path/file_ca.md');
             expect(multilang.getAltFilename('some/path/file_es.md', 'es', 'es')).to.equal('some/path/file_es.md');
+            expect(multilang.getAltFilename('some/es/file.md', 'es', 'ca')).to.equal('some/ca/file.md');
+            expect(multilang.getAltFilename('some/es/file.md', 'es', 'es')).to.equal('some/es/file.md');
         });
     });
 
@@ -23,6 +25,8 @@ describe('/lib/multilang.js', function () {
             expect(multilang.getBaseFilename('index_en.html')).to.equal('index_es.html');
             expect(multilang.getBaseFilename('some/path/file_es.md')).to.equal('some/path/file_es.md');
             expect(multilang.getBaseFilename('some/path/file_en.md')).to.equal('some/path/file_es.md');
+            expect(multilang.getBaseFilename('some/es/file.md')).to.equal('some/es/file.md');
+            expect(multilang.getBaseFilename('some/en/file.md')).to.equal('some/es/file.md');
         });
 
         it('should ignore unknown locales', function () {
@@ -36,6 +40,8 @@ describe('/lib/multilang.js', function () {
             expect(multilang.getLocale('index_en.html')).to.equal('en');
             expect(multilang.getLocale('some/path/file_es.md')).to.equal('es');
             expect(multilang.getLocale('some/path/file_en.md')).to.equal('en');
+            expect(multilang.getLocale('some/es/file.md')).to.equal('es');
+            expect(multilang.getLocale('some/en/file.md')).to.equal('en');
         });
     });
 
