@@ -29,10 +29,10 @@ path/file_en.md
 Or put your files in locale-specific directories, e.g.:
 
 ```
-path/es/file1.md
-path/en/file2.md
-path/es/subdir/file1.md
-path/en/subdir/file2.md
+path/es/file.md
+path/en/file.md
+path/es/subdir/file.md
+path/en/subdir/file.md
 ```
 
 Note that **this plugin does not handle URL generation**, if you need URLs in the `:locale/:slug` format or similar check [`metalsmith-permalinks`](https://github.com/segmentio/metalsmith-permalinks).
