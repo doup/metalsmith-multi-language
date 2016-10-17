@@ -16,6 +16,8 @@ describe('/lib/multilang.js', function () {
             expect(multilang.getAltFilename('some/path/file_es.md', 'es', 'es')).to.equal('some/path/file_es.md');
             expect(multilang.getAltFilename('some/es/file.md', 'es', 'ca')).to.equal('some/ca/file.md');
             expect(multilang.getAltFilename('some/es/file.md', 'es', 'es')).to.equal('some/es/file.md');
+            expect(multilang.getAltFilename('es/file.md', 'es', 'ca')).to.equal('ca/file.md');
+            expect(multilang.getAltFilename('es/file.md', 'es', 'es')).to.equal('es/file.md');
         });
     });
 
@@ -27,10 +29,13 @@ describe('/lib/multilang.js', function () {
             expect(multilang.getBaseFilename('some/path/file_en.md')).to.equal('some/path/file_es.md');
             expect(multilang.getBaseFilename('some/es/file.md')).to.equal('some/es/file.md');
             expect(multilang.getBaseFilename('some/en/file.md')).to.equal('some/es/file.md');
+            expect(multilang.getBaseFilename('es/file.md')).to.equal('es/file.md');
+            expect(multilang.getBaseFilename('en/file.md')).to.equal('es/file.md');
         });
 
         it('should ignore unknown locales', function () {
             expect(multilang.getBaseFilename('index_ca.html')).to.equal('index_ca.html');
+            expect(multilang.getBaseFilename('ca/file.md')).to.equal('ca/file.md');
         });
     });
 
@@ -42,6 +47,8 @@ describe('/lib/multilang.js', function () {
             expect(multilang.getLocale('some/path/file_en.md')).to.equal('en');
             expect(multilang.getLocale('some/es/file.md')).to.equal('es');
             expect(multilang.getLocale('some/en/file.md')).to.equal('en');
+            expect(multilang.getLocale('es/file.md')).to.equal('es');
+            expect(multilang.getLocale('en/file.md')).to.equal('en');
         });
     });
 
