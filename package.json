@@ -1,6 +1,6 @@
 {
   "name": "metalsmith-multi-language",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Create multi-language websites in Metalsmith",
   "homepage": "https://github.com/doup/metalsmith-multi-language#readme",
   "author": "doup <asier@illarra.com>",
