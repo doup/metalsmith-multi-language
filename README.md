@@ -1,3 +1,5 @@
+> **THIS PROJECT IS NO LONGER MAINTAINED, OPEN A PR IF YOU WANT TAKE OWNERSHIP**
+
 # metalsmith-multi-language
 
 ## Instalation
